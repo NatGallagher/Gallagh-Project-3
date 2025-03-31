@@ -11,23 +11,33 @@ const initial_todo_items = [
      
 
 
-
-
-
 function Home() {
-  
-  const divDisplay = useRef("")
-  divDisplay.current.innerHTML = initial_todo_items.map(item => `<input type='checkbox'<p>${item.name}</p>`).join('');
+
+  const [tasks, setTasks] = useState(["Eat Breakfast", "Take a shower", "Feed Luna"]);
+  const [newTask, setNewTask] = useState("");
+
+  function handleInputChange(event){
+    setNewTask(event.target.value);
+  }
+
+  function addTask(){
+    setTasks(prevval => [...prevval, newTask]);
+    setNewTask("");
+  }
 
     return (
       <>
         <h2>To-Do List</h2> 
-        <input></input> {" "}
-        <button>Add</button> {" "}
+        <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
+        <button onClick={addTask}>Add</button> {" "}
         <a>Clear</a><br/>
         <p></p>
-        <div ref={divDisplay}>
-            
+        <div>
+            {tasks.map((task, index) =>
+              <li key={index}>
+                <span>{task}</span>
+              </li>
+            )}
         </div>
       </>
     );
