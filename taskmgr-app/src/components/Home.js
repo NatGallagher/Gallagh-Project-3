@@ -9,12 +9,16 @@ const initial_todo_items = [
     {id:5,name:"item five", completed:false}
     ];
      
-const divDisplay = useRef("")
 
-divDisplay.innerHTML = initial_todo_items.map(item => `<p>${item.name}</p>`).join('');
+
+
 
 
 function Home() {
+  
+  const divDisplay = useRef("")
+  divDisplay.current.innerHTML = initial_todo_items.map(item => `<input type='checkbox'<p>${item.name}</p>`).join('');
+
     return (
       <>
         <h2>To-Do List</h2> 
