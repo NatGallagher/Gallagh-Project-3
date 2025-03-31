@@ -1,12 +1,9 @@
-
+import Home from "./components/Home"
 
 function App() {
   return (
     <>
-      <h2>To-Do List</h2> 
-      <input></input> {" "}
-      <button>Add</button> {" "}
-      <a>Clear</a>
+      <Home/>
     </>
   );
 }
