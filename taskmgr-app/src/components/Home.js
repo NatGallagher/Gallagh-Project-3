@@ -15,6 +15,7 @@ function Home() {
 
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
+  const [todolist, setTodoList] = useState(null);
 
   function handleInputChange(event){
     setNewTask(event.target.value);
@@ -54,10 +55,10 @@ function Home() {
 
     const filteredlist = tasks;
       
-    setTasks(filteredlist);
+    setTodoList(filteredlist);
   }
 
-  const handleComplete = (e) => {
+   const handleComplete = (e) => {
 
     e.preventDefault();
 
@@ -65,11 +66,18 @@ function Home() {
         return item.completed
     })
 
-    setTasks(filteredlist);
+    setTodoList(filteredlist);
   }
 
-  const handleIncomplete = (e) => {
+   const handleIncomplete = (e) => {
 
+      e.preventDefault();
+  
+      const filteredlist = tasks.filter((item)=>{
+          return !item.completed
+      })
+
+      setTodoList(filteredlist);
   }
 
   useEffect(()=>{
