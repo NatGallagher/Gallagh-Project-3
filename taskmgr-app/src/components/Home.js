@@ -36,12 +36,18 @@ function Home() {
     
   }
 
+  function clearFields() {
+    let msgText = "clearFields";
+    console.log(msgText);
+    setNewTask("");
+  }
+
     return (
       <>
         <h2>To-Do List</h2> 
         <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
         <button onClick={addTask}>Add</button> {" "}
-        <a>Clear</a><br/>
+        <a onClick={clearFields}>Clear</a><br/>
         <p></p>
         <div>
             {tasks.map((task, index) =>
