@@ -44,7 +44,9 @@
   align-items: center;
   background-color: black;
   color: White;
-  display: flex;
+  width: 100vw;
+  height: 100vh;
+  font-size: 40px;
 }
 
 .div-tasks {
@@ -61,5 +63,10 @@
 }
 
 .nav-bar {
-  background-color: grey;
+  background-color: lightgrey;
+}
+
+.user-input {
+  height: 40px;
+  font-size: 40px;
 }
