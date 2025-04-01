@@ -67,6 +67,10 @@
 }
 
 .user-input {
-  height: 40px;
-  font-size: 40px;
+  font-size: 20px;
+}
+
+.add-btn {
+  font-size: 20px;
+  background-color: rgb(21, 201, 21);
 }
