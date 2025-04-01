@@ -55,8 +55,8 @@ function Home() {
           <div className="div-tasks">
               {tasks.map((task, index) =>
                 <li key={index}>
-                  <span>{task}</span>
-                  <button onClick={() => deleteTask(index)}>X</button>
+                  <span>{task}</span> {" "}
+                  <button className="delete-btn"onClick={() => deleteTask(index)}>x</button>
                 </li>
               )}
           </div>
