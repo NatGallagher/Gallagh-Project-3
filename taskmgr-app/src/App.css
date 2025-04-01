@@ -37,9 +37,16 @@
   }
 }
 
-.app-center-page {
+.div-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.div-tasks {
+  border: 1px solid #000000;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 5px;
 }
