@@ -26,9 +26,13 @@ function Home() {
   }
 
   function deleteTask(index) {
-    let msgText = "deleteTask";
-    console.log(msgText);
 
+    if(!window.confirm("delete item?")){
+      return false;
+    }
+
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
     
   }
 
@@ -43,7 +47,7 @@ function Home() {
             {tasks.map((task, index) =>
               <li key={index}>
                 <span>{task}</span>
-                <button onClick={deleteTask}>X</button>
+                <button onClick={() => deleteTask(index)}>X</button>
               </li>
             )}
         </div>
