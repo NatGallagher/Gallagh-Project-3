@@ -55,6 +55,7 @@
   padding-right: 40px;
   border-radius: 10px;
   background-color: orange;
+  color: black;
 }
 
 .delete-btn {
@@ -79,4 +80,11 @@
 
 .clear-btn {
   font-size: 20px;
+}
+
+h2 {
+  background-color: orange;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
 }
