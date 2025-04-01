@@ -53,10 +53,11 @@ function Home() {
           </div>
           <div className="div-tasks">
               {tasks.map((task, index) =>
-                <li key={index}>
+                <div key={index}>
+                  <input type="checkbox"></input> {" "}
                   <span>{task}</span> {" "}
                   <button className="delete-btn"onClick={() => deleteTask(index)}>x</button>
-                </li>
+                </div>
               )}
           </div>
         </div>
