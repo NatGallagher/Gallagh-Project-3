@@ -1,4 +1,4 @@
-import { useRef,useState } from "react"
+import { useEffect, useState } from "react"
 
 
 const initial_todo_items = [
@@ -21,6 +21,12 @@ function Home() {
   }
 
   function addTask(){
+
+    if (newTask.trim().length == 0) {
+      alert("Please enter a task");
+      return true;
+    }
+
     setTasks(prevval => [...prevval, newTask]);
     setNewTask("");
   }
@@ -42,6 +48,43 @@ function Home() {
     setNewTask("");
   }
 
+  const handleAll = (e) => {
+
+    e.preventDefault();
+
+    const filteredlist = tasks;
+      
+    setTasks(filteredlist);
+  }
+
+  const handleComplete = (e) => {
+
+    e.preventDefault();
+
+    const filteredlist = tasks.filter((item)=>{
+        return item.completed
+    })
+
+    setTasks(filteredlist);
+  }
+
+  const handleIncomplete = (e) => {
+
+  }
+
+  useEffect(()=>{
+
+    console.log("#App::Home page load")
+    
+    //setTodoList(tmplist)
+    //or -- spread operator -- append/include latest data 
+    setTasks([...tasks])
+   
+    //page load [] -- 1 time
+    //-- always refresh page on state update -- setTodoList , updated caused a page refresh, = endless loop page refresh
+    
+  },[]) //[] - run only 1 time 
+
     return (
       <>
         <div className="div-main">
@@ -52,16 +95,16 @@ function Home() {
           <a className="clear-btn" onClick={clearFields}>Clear</a><br/>
           </div>
           <br/>
-          <div>
-            <a>all</a> {" | "}
-            <a>complete</a> {" | "}
-            <a>in-complete</a> 
+          <div className="div-filter">
+          <a href="#" onClick={handleAll}>all</a> {" | "}
+            <a href="#" onClick={handleComplete}>complete</a> {" | "}
+            <a href="#" onClick={handleIncomplete}>in-complete</a> 
           </div>
           <p></p>
           <div className="div-tasks">
               {tasks.map((task, index) =>
                 <div key={index}>
-                  <input type="checkbox"></input> {" "}
+                  <input type="checkbox" checked={task.completed}></input> {" "}
                   <span>{task}</span> {" "}
                   <button className="delete-btn"onClick={() => deleteTask(index)}>x</button>
                 </div>
