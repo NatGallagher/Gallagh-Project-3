@@ -49,7 +49,7 @@ function Home() {
           <div> 
           <input className="user-input" type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
           <button className="add-btn" onClick={addTask}>Add</button> {" "}
-          <a onClick={clearFields}>Clear</a><br/>
+          <a className="clear-btn" onClick={clearFields}>Clear</a><br/>
           </div>
           <p></p>
           <div className="div-tasks">
