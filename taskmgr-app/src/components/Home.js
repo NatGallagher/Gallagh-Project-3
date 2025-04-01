@@ -44,18 +44,22 @@ function Home() {
 
     return (
       <>
-        <h2>To-Do List</h2> 
-        <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
-        <button onClick={addTask}>Add</button> {" "}
-        <a onClick={clearFields}>Clear</a><br/>
-        <p></p>
-        <div>
-            {tasks.map((task, index) =>
-              <li key={index}>
-                <span>{task}</span>
-                <button onClick={() => deleteTask(index)}>X</button>
-              </li>
-            )}
+        <div className="app-center-page">
+          <h2>To-Do List</h2>
+          <div> 
+          <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
+          <button onClick={addTask}>Add</button> {" "}
+          <a onClick={clearFields}>Clear</a><br/>
+          </div>
+          <p></p>
+          <div>
+              {tasks.map((task, index) =>
+                <li key={index}>
+                  <span>{task}</span>
+                  <button onClick={() => deleteTask(index)}>X</button>
+                </li>
+              )}
+          </div>
         </div>
       </>
     );
