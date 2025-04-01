@@ -46,7 +46,6 @@
   color: White;
   width: 100vw;
   height: 100vh;
-  font-size: 40px;
 }
 
 .div-tasks {
@@ -76,15 +75,19 @@
   font-size: 20px;
   background-color: rgb(21, 201, 21);
   border-radius: 5px;
+  cursor: pointer;
+
 }
 
 .clear-btn {
   font-size: 20px;
+  cursor: pointer;
 }
 
 h2 {
-  background-color: orange;
-  padding: 10px;
+  background-color: whitesmoke;
+  padding: 20px;
   border-radius: 10px;
   color: black;
+  font-size: 50px;
 }

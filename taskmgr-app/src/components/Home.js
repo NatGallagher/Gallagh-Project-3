@@ -51,6 +51,13 @@ function Home() {
           <button className="add-btn" onClick={addTask}>Add</button> {" "}
           <a className="clear-btn" onClick={clearFields}>Clear</a><br/>
           </div>
+          <br/>
+          <div>
+            <a>all</a> {" | "}
+            <a>complete</a> {" | "}
+            <a>in-complete</a> 
+          </div>
+          <p></p>
           <div className="div-tasks">
               {tasks.map((task, index) =>
                 <div key={index}>
