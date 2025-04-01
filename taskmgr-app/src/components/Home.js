@@ -25,6 +25,13 @@ function Home() {
     setNewTask("");
   }
 
+  function deleteTask(index) {
+    let msgText = "deleteTask";
+    console.log(msgText);
+
+    
+  }
+
     return (
       <>
         <h2>To-Do List</h2> 
@@ -36,6 +43,7 @@ function Home() {
             {tasks.map((task, index) =>
               <li key={index}>
                 <span>{task}</span>
+                <button onClick={deleteTask}>X</button>
               </li>
             )}
         </div>
