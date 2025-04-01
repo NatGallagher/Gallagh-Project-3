@@ -13,7 +13,7 @@ const initial_todo_items = [
 
 function Home() {
 
-  const [tasks, setTasks] = useState(["Eat Breakfast", "Take a shower", "Feed Luna"]);
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
   function handleInputChange(event){
