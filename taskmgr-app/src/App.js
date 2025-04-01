@@ -2,6 +2,8 @@ import {HashRouter, Routes, Route} from "react-router-dom"
 import Home from "./components/Home"
 import ContactUs from "./components/ContactUs"
 import NavBar from "./components/NavBar";
+import "./App.css"
+
 
 function App() {
   return (
