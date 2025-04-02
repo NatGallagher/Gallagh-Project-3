@@ -38,13 +38,13 @@ function Home() {
     setNewTask("");
   }
 
-  function deleteTask(index) {
+  function deleteTask(taskId) {
 
     if(!window.confirm("delete item?")){
       return false;
     }
 
-    const updatedTasks = tasks.filter((_, i) => i !== index);
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(updatedTasks);
     
   }
@@ -105,7 +105,7 @@ function Home() {
                 <div key={task.id}>
                   <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
                   <span>{task.name}</span> {" "}
-                  <button className="delete-btn" onClick={() => deleteTask(index)}>x</button>
+                  <button className="delete-btn" onClick={() => deleteTask(task.id)}>x</button>
                 </div>
               )}
           </div>
