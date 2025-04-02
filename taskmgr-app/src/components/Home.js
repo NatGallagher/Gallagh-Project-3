@@ -13,9 +13,9 @@ const initial_todo_items = [
 
 function Home() {
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(initial_todo_items);
   const [newTask, setNewTask] = useState("");
-  const [todolist, setTodoList] = useState(null);
+  const [filter, setFilter] = useState("all");
 
   function handleInputChange(event){
     setNewTask(event.target.value);
@@ -28,7 +28,13 @@ function Home() {
       return true;
     }
 
-    setTasks(prevval => [...prevval, newTask]);
+    const _newTask = {
+      id: tasks.length + 1,
+      name: newTask,
+      completed: false
+    }
+
+    setTasks(prevval => [...prevval, _newTask]);
     setNewTask("");
   }
 
@@ -49,36 +55,21 @@ function Home() {
     setNewTask("");
   }
 
-  const handleAll = (e) => {
 
-    e.preventDefault();
 
-    const filteredlist = tasks;
-      
-    setTodoList(filteredlist);
+  function toggleTaskCompletion(taskId) {
+    setTasks(prevTasks =>
+      prevTasks.map(task => 
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
   }
 
-   const handleComplete = (e) => {
-
-    e.preventDefault();
-
-    const filteredlist = tasks.filter((item)=>{
-        return item.completed
-    })
-
-    setTodoList(filteredlist);
-  }
-
-   const handleIncomplete = (e) => {
-
-      e.preventDefault();
-  
-      const filteredlist = tasks.filter((item)=>{
-          return !item.completed
-      })
-
-      setTodoList(filteredlist);
-  }
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "complete") return task.completed;
+    if (filter === "incomplete") return !task.completed;
+    return true;
+  });
 
   useEffect(()=>{
 
@@ -104,17 +95,17 @@ function Home() {
           </div>
           <br/>
           <div className="div-filter">
-          <a href="#" onClick={handleAll}>all</a> {" | "}
-            <a href="#" onClick={handleComplete}>complete</a> {" | "}
-            <a href="#" onClick={handleIncomplete}>in-complete</a> 
+          <a href="#" onClick={(e) => {e.preventDefault(); setFilter("all"); }}>all</a> {" | "}
+          <a href="#" onClick={(e) => {e.preventDefault(); setFilter("complete"); }}>complete</a> {" | "}
+          <a href="#" onClick={(e) => {e.preventDefault(); setFilter("incomplete"); }}>in-complete</a> 
           </div>
           <p></p>
           <div className="div-tasks">
-              {tasks.map((task, index) =>
-                <div key={index}>
-                  <input type="checkbox" checked={task.completed}></input> {" "}
-                  <span>{task}</span> {" "}
-                  <button className="delete-btn"onClick={() => deleteTask(index)}>x</button>
+              {filteredTasks.map((task) =>
+                <div key={task.id}>
+                  <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
+                  <span>{task.name}</span> {" "}
+                  <button className="delete-btn" onClick={() => deleteTask(index)}>x</button>
                 </div>
               )}
           </div>
@@ -124,4 +115,4 @@ function Home() {
   }
   
   export default Home;
-  
+ 
