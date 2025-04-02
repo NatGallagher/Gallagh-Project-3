@@ -96,3 +96,13 @@ h2 {
   cursor: pointer;
   
 }
+
+.div-main-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  width: 100vw;
+  height: 100vh;
+}

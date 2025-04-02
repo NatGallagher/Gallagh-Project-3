@@ -1,7 +1,7 @@
 function ContactUs() {
     return (
         <>
-        <div>  
+        <div className="div-main-contact">  
           <h2>Contact Us</h2>
           <div></div>
           <br/>
