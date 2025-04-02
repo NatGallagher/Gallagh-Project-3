@@ -13,7 +13,7 @@ const initial_todo_items = [
 
 function Home() {
 
-  const [tasks, setTasks] = useState(initial_todo_items);
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
   const [filter, setFilter] = useState("all");
 
