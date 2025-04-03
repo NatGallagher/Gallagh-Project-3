@@ -104,7 +104,7 @@ function Home() {
               {filteredTasks.map((task) =>
                 <div key={task.id} className="div-tasks-2">
                   <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
-                  <span>{task.name}</span> {" "}
+                  <span key={task.id} style={{'text-decoration':(task.completed)?"line-through":""}}>{task.name}</span> {" "}
                   <button className="delete-btn" onClick={() => deleteTask(task.id)}>x</button>
                 </div>
               )}
