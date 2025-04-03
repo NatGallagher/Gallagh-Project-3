@@ -102,7 +102,7 @@ function Home() {
           <p></p>
           <div className="div-tasks">
               {filteredTasks.map((task) =>
-                <div key={task.id}>
+                <div key={task.id} className="div-tasks-2">
                   <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
                   <span>{task.name}</span> {" "}
                   <button className="delete-btn" onClick={() => deleteTask(task.id)}>x</button>

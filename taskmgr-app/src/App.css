@@ -49,17 +49,20 @@
 }
 
 .div-tasks {
-  border: 1px solid #000000;
+  border: 3px solid lightgrey;
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 10px;
   background-color: orange;
   color: black;
+  font-family: Arial, sans-serif;
 }
 
 .delete-btn {
   background-color: grey;
+  font-size: 0.7rem;
   color: white;
+  cursor: pointer;
 }
 
 .nav-bar {
@@ -105,4 +108,9 @@ h2 {
   background-color: lightblue;
   width: 100vw;
   height: 100vh;
+}
+
+span {
+  font-family: monospace;
+  font-size: larger;
 }
