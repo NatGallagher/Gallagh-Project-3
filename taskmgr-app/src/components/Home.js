@@ -86,29 +86,31 @@ function Home() {
 
     return (
       <>
-        <div className="div-main">
+        <div className="App">
+          <header className="App-header">
           <h2>To-Do List</h2>
           <div> 
-          <input className="user-input" type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
-          <button className="add-btn" onClick={addTask}>Add</button> {" "}
+          <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
+          <button onClick={addTask}>Add</button> {" "}
           <a className="clear-btn" onClick={clearFields}>Clear</a><br/>
           </div>
           <br/>
-          <div className="div-filter">
+          <div>
           <a href="#" onClick={(e) => {e.preventDefault(); setFilter("all"); }}>all</a> {" | "}
           <a href="#" onClick={(e) => {e.preventDefault(); setFilter("complete"); }}>complete</a> {" | "}
           <a href="#" onClick={(e) => {e.preventDefault(); setFilter("incomplete"); }}>in-complete</a> 
           </div>
           <p></p>
-          <div className="div-tasks">
+          <div>
               {filteredTasks.map((task) =>
-                <div key={task.id} className="div-tasks-2">
+                <div key={task.id}>
                   <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
                   <span key={task.id} style={{'text-decoration':(task.completed)?"line-through":""}}>{task.name}</span> {" "}
-                  <button className="delete-btn" onClick={() => deleteTask(task.id)}>x</button>
+                  <button onClick={() => deleteTask(task.id)}>x</button>
                 </div>
               )}
           </div>
+          </header>
         </div>
       </>
     );
