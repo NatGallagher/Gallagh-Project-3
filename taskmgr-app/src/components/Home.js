@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import Button from 'react-bootstrap/Button';
-import { Navbar, Container, Nav} from "react-bootstrap"
-import { Link } from "react-router-dom"
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const initial_todo_items = [
     {id:1,name:"item one", completed:false},
@@ -91,27 +92,37 @@ function Home() {
         <div className="App">
           <header className="App-header">
           <h2>To-Do List</h2>
-          <div> 
-          <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
+          <div>
+          <input className="mb-3"type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
           <Button onClick={addTask} variant="success">Add</Button> {" "}
           <a className="clear-btn" onClick={clearFields}>Clear</a><br/>
           </div>
-          <br/>
-          <div>
-          <a href="#" onClick={(e) => {e.preventDefault(); setFilter("all"); }}>all</a> {" | "}
-          <a href="#" onClick={(e) => {e.preventDefault(); setFilter("complete"); }}>complete</a> {" | "}
-          <a href="#" onClick={(e) => {e.preventDefault(); setFilter("incomplete"); }}>in-complete</a> 
-          </div>
+          <ToggleButtonGroup type="checkbox" value={filter} onChange={toggleTaskCompletion}>
+      <ToggleButton variant="outline-light" onClick={(e) => {e.preventDefault(); setFilter("all")}}id="tbg-btn-1" value={"all"}>
+        All
+      </ToggleButton>
+      <ToggleButton variant="outline-success" onClick={(e) => {e.preventDefault(); setFilter("complete"); }} id="tbg-btn-2" value={"complete"}>
+        Complete
+      </ToggleButton>
+      <ToggleButton variant="outline-danger" onClick={(e) => {e.preventDefault(); setFilter("incomplete"); }} id="tbg-btn-3" value={"incomplete"}>
+        Incomplete
+      </ToggleButton>
+    </ToggleButtonGroup>
           <p></p>
-          <div>
+          <ListGroup variant="flush">          
               {filteredTasks.map((task) =>
-                <div key={task.id}>
+                  <ListGroup.Item
+                    key={task.id} 
+                    style={{ marginBottom: "10px",
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    color: "#ffffff"
+                    }}>
                   <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
                   <span key={task.id} style={{'text-decoration':(task.completed)?"line-through":""}}>{task.name}</span> {" "}
-                  <Button variant="danger"onClick={() => deleteTask(task.id)}>x</Button>
-                </div>
+                  <Button variant="danger"onClick={() => deleteTask(task.id)}>Delete</Button>
+                  </ListGroup.Item>
               )}
-          </div>
+          </ListGroup>
           </header>
         </div>
       </>
