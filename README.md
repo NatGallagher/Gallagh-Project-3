@@ -32,6 +32,4 @@ taskmgr_app
 - https://natgallagher.github.io/Gallagh-Project-3/
 
 # future improvements
-- better font styling selections
-- background image
-- more colorful
+- sizes on the home page

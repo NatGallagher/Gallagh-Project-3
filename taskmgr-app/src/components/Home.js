@@ -127,7 +127,7 @@ function Home() {
                      style={{ display: "inline-block", marginRight: "10px"}}/>
 
                   <span key={task.id} style={{'text-decoration':(task.completed)?"line-through":""}}>{task.name}</span> {" "}
-                  <Button variant="danger"onClick={() => deleteTask(task.id)}>Delete</Button>
+                  <Button variant="danger"onClick={() => deleteTask(task.id)}>X</Button>
                   </ListGroup.Item>
               )}
           </ListGroup>
