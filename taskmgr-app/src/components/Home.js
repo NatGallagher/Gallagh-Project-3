@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-
+import Button from 'react-bootstrap/Button';
+import { Navbar, Container, Nav} from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const initial_todo_items = [
     {id:1,name:"item one", completed:false},
@@ -91,7 +93,7 @@ function Home() {
           <h2>To-Do List</h2>
           <div> 
           <input type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
-          <button onClick={addTask}>Add</button> {" "}
+          <Button onClick={addTask} variant="success">Add</Button> {" "}
           <a className="clear-btn" onClick={clearFields}>Clear</a><br/>
           </div>
           <br/>
@@ -106,7 +108,7 @@ function Home() {
                 <div key={task.id}>
                   <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
                   <span key={task.id} style={{'text-decoration':(task.completed)?"line-through":""}}>{task.name}</span> {" "}
-                  <button onClick={() => deleteTask(task.id)}>x</button>
+                  <Button variant="danger"onClick={() => deleteTask(task.id)}>x</Button>
                 </div>
               )}
           </div>
