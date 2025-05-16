@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
 
 const initial_todo_items = [
     {id:1,name:"item one", completed:false},
@@ -117,7 +118,14 @@ function Home() {
                     backgroundColor: "rgba(255, 255, 255, 0.05)",
                     color: "#ffffff"
                     }}>
-                  <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}></input> {" "}
+                    <Form.Check
+                     type="switch"
+                     id={`task-switch-${task.id}`}
+                     checked={task.completed}
+                     onChange={() => toggleTaskCompletion(task.id)}
+                     label=""
+                     style={{ display: "inline-block", marginRight: "10px"}}/>
+
                   <span key={task.id} style={{'text-decoration':(task.completed)?"line-through":""}}>{task.name}</span> {" "}
                   <Button variant="danger"onClick={() => deleteTask(task.id)}>Delete</Button>
                   </ListGroup.Item>
