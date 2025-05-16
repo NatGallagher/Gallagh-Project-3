@@ -33,3 +33,4 @@ taskmgr_app
 
 # future improvements
 - sizes on the home page
+- delete button as a smaller x?
