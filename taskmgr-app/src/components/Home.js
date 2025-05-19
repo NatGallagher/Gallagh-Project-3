@@ -92,12 +92,20 @@ function Home() {
       <>
         <div className="App">
           <header className="App-header">
-          <h2>To-Do List</h2>
-          <div>
-          <input className="mb-3"type="text" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}></input> {" "}
-          <Button onClick={addTask} variant="success">Add</Button> {" "}
-          <a className="clear-btn" onClick={clearFields}>Clear</a><br/>
-          </div>
+          <h1 style={{marginBottom: "50px", fontSize: "80px"}}>To-Do List</h1>
+        <div>
+          <Form>
+            <div className="d-flex align-items-start gap-2 mb-3">
+              <Form.Control
+              type="text"
+              placeholder="Enter a task..."
+              value={newTask}
+              onChange={handleInputChange}/>
+                <Button onClick={addTask} variant="success">Add</Button>
+                <a className="clear-btn btn btn-outline-secondary" onClick={clearFields}>Clear</a>
+            </div>
+          </Form>
+        </div>
           <ToggleButtonGroup type="checkbox" value={filter} onChange={toggleTaskCompletion}>
       <ToggleButton variant="outline-light" onClick={(e) => {e.preventDefault(); setFilter("all")}}id="tbg-btn-1" value={"all"}>
         All
