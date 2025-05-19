@@ -92,7 +92,7 @@ function Home() {
       <>
         <div className="App">
           <header className="App-header">
-          <h1 style={{marginBottom: "50px", fontSize: "80px"}}>To-Do List</h1>
+          <h1 style={{marginBottom: "50px", fontSize: "70px"}}>To-Do List</h1>
         <div>
           <Form>
             <div className="d-flex align-items-start gap-2 mb-3">
